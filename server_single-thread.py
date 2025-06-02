@@ -7,7 +7,7 @@ def handle_client(connection_socket, client_address):
         request = connection_socket.recv(1024).decode()
         print(f"[REQUEST from {client_address}] {request}")
 
-        # Parse nama file dari request GET
+        # Parse file name from GET request
         lines = request.splitlines()
         if len(lines) == 0:
             return
