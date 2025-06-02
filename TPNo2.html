@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mata Kuliah Jaringan Komputer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 15px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            top: -10px;
+            animation: confettiFall linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .confetti:nth-child(1) { left: 10%; animation-duration: 5s; background: #ff6f61; }
+        .confetti:nth-child(2) { left: 20%; animation-duration: 7s; background: #ffcc00; }
+        .confetti:nth-child(3) { left: 30%; animation-duration: 6s; background: #6a11cb; }
+        .confetti:nth-child(4) { left: 40%; animation-duration: 8s; background: #2575fc; }
+        .confetti:nth-child(5) { left: 50%; animation-duration: 5s; background: #ff4d3b; }
+        .confetti:nth-child(6) { left: 60%; animation-duration: 7s; background: #6a11cb; }
+        .confetti:nth-child(7) { left: 70%; animation-duration: 6s; background: #ffcc00; }
+        .confetti:nth-child(8) { left: 80%; animation-duration: 8s; background: #2575fc; }
+        .confetti:nth-child(9) { left: 90%; animation-duration: 5s; background: #ff6f61; }
+    </style>
+</head>
+<body>
+    <!-- Confetti Particles -->
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+
+    <div class="container">
+        <h1>Mata Kuliah Jaringan Komputer</h1>
+        <h2>Sukses Mendapatkan Nilai A atau Minimal AB</h2>
+        <p>- STO</p>
+    </div>
+</body>
+</html>

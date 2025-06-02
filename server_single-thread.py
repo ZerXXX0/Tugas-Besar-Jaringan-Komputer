@@ -12,8 +12,6 @@ def handle_client(connection_socket, client_address):
         if len(lines) == 0:
             return
         filename = lines[0].split()[1].lstrip('/')
-        if filename == '':
-            filename = 'index.html'  # default file
 
         if os.path.exists(filename):
             with open(filename, 'rb') as f:
