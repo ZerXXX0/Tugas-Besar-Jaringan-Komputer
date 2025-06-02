@@ -32,7 +32,7 @@ def start_server(host='0.0.0.0', port=8080):
     # Creates a TCP socket using IPv4 (AF_INET) and TCP (SOCK_STREAM).
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((host, port))
-    server_socket.listen(1)
+    server_socket.listen(5)
     print(f"[SERVER RUNNING - Single Threaded] Listening on {host}:{port}")
 
     # Difference is here
