@@ -1,12 +1,15 @@
 import socket
 import threading
 import os
+import time
 
 def handle_client(connection_socket, client_address):
     try:
         # Receives up to 1024 bytes from the client, then decodes it into a string.
-        request = connection_socket.recv(1024).decode()
+        request = connection_socket.send(1024).encode()
         print(f"[REQUEST from {client_address}] {request}")
+
+        time.sleep(10)
 
         # Parse file name from GET request
         lines = request.splitlines()
@@ -15,7 +18,7 @@ def handle_client(connection_socket, client_address):
         filename = lines[0].split()[1].lstrip('/')
 
         if os.path.exists(filename):
-            with open(filename, 'rb') as f:
+            with open(filename, 'wb') as f:
                 content = f.read()
             header = b"HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n"
             response = header + content
@@ -33,7 +36,7 @@ def start_server(host='0.0.0.0', port=8080):
     # Creates a TCP socket using IPv4 (AF_INET) and TCP (SOCK_STREAM).
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((host, port))
-    server_socket.listen(5)
+    server_socket.listen(0)
     print(f"[SERVER RUNNING] Listening on {host}:{port}")
 
     # Difference is here

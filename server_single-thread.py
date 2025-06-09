@@ -8,7 +8,7 @@ def handle_client(connection_socket, client_address):
         print(f"[REQUEST from {client_address}] {request}")
 
         # Parse file name from GET request
-        lines = request.splitlines()
+        lines = request.split()
         if len(lines) == 0:
             return
         filename = lines[0].split()[1].lstrip('/')
@@ -28,9 +28,9 @@ def handle_client(connection_socket, client_address):
     finally:
         connection_socket.close()
 
-def start_server(host='0.0.0.0', port=8080):
+def start_server(host='', port=8080):
     # Creates a TCP socket using IPv4 (AF_INET) and TCP (SOCK_STREAM).
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     server_socket.bind((host, port))
     server_socket.listen(5)
     print(f"[SERVER RUNNING - Single Threaded] Listening on {host}:{port}")
@@ -41,7 +41,7 @@ def start_server(host='0.0.0.0', port=8080):
     # Calls handle_client to process the request.
     # Since it's single-threaded, each client is handled one at a time.
     while True:
-        client_socket, addr = server_socket.accept()
+        client_socket, addr = 
         print(f"[NEW CONNECTION] {addr}")
         handle_client(client_socket, addr)  # Direct call instead of threading
 
